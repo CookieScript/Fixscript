@@ -3197,17 +3197,11 @@ local dick = os.date("%Y-%m-%d")
 
 
 
-local role = "Buyer"
-if LocalPlayer.Name == "computerplayer442" then
-  role = "BurritoCat"
-elseif LocalPlayer.Name == "pzoz853" then
-  role = "Taco"
-end
 
 local RealColor = "#" .. Library.Accent:ToHex()
 
 local Window = Library:Window({
-    Name = 'Psalms.<font color="'..RealColor..'">Tech</font> | '..guh..' | '..dick..' | <font color="'..RealColor..'">'..role..'</font>',
+    Name = 'Psalms.<font color="'..RealColor..'">Tech</font> | '..guh..' | '..dick..' | Fixed by <font color="'..RealColor..'">Dino</font>',
     Amount = 4
 })
 
