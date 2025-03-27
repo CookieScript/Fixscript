@@ -5730,8 +5730,8 @@ end)
 do
     local CFG = Settings:Section({Name = "Config", Zindex = 2})
 --
-if not isfolder("Psalms") then makefolder("Psalms") end
-if not isfolder("Psalms/Configs") then makefolder("Psalms/Configs") end
+if not isfolder("FixedPsalms") then makefolder("FixedPsalms") end
+if not isfolder("FixedPsalms/Configs") then makefolder("FixedPsalms/Configs") end
 
 local ConfigList = CFG:List({Name = "Config", Flag = "SettingConfigurationList", Options = {}})
 CFG:Textbox({Flag = "SettingsConfigurationName", Name = "Config Name"})
@@ -5740,8 +5740,8 @@ local CurrentList = {}
 
 local function UpdateConfigList()
     local List = {}
-    for _, file in ipairs(listfiles("Psalms/Configs")) do
-        local FileName = file:match("Psalms/Configs/(.+)%.cfg")
+    for _, file in ipairs(listfiles("FixedPsalms/Configs")) do
+        local FileName = file:match("FixedPsalms/Configs/(.+)%.cfg")
         if FileName then
             table.insert(List, FileName)
         end
@@ -5756,8 +5756,8 @@ end
 
 CFG:Button({Name = "Create", Callback = function()
     local ConfigName = Flags.SettingsConfigurationName
-    if ConfigName and ConfigName ~= "" and not isfile("Psalms/Configs/" .. ConfigName .. ".cfg") then
-        writefile("Psalms/Configs/" .. ConfigName .. ".cfg", "")
+    if ConfigName and ConfigName ~= "" and not isfile("FixedPsalms/Configs/" .. ConfigName .. ".cfg") then
+        writefile("FixedPsalms/Configs/" .. ConfigName .. ".cfg", "")
         UpdateConfigList()
     end
 end})
@@ -5765,14 +5765,14 @@ end})
 CFG:Button({Name = "Save", Callback = function()
     local SelectedConfig = Flags.SettingConfigurationList
     if SelectedConfig then
-        writefile("Psalms/Configs/" .. SelectedConfig .. ".cfg", Library:GetConfig())
+        writefile("FixedPsalms/Configs/" .. SelectedConfig .. ".cfg", Library:GetConfig())
     end
 end})
 
 CFG:Button({Name = "Load", Callback = function()
     local SelectedConfig = Flags.SettingConfigurationList
     if SelectedConfig then
-        local Content = readfile("Psalms/Configs/" .. SelectedConfig .. ".cfg")
+        local Content = readfile("FixedPsalms/Configs/" .. SelectedConfig .. ".cfg")
         Library:LoadConfig(Content)
     end
 end})
@@ -5780,7 +5780,7 @@ end})
 CFG:Button({Name = "Delete", Callback = function()
     local SelectedConfig = Flags.SettingConfigurationList
     if SelectedConfig and isfile("Psalms/Configs/" .. SelectedConfig .. ".cfg") then
-        delfile("Psalms/Configs/" .. SelectedConfig .. ".cfg")
+        delfile("FixedPsalms/Configs/" .. SelectedConfig .. ".cfg")
         UpdateConfigList()
     end
 end})
