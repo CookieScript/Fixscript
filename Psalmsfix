@@ -5779,7 +5779,7 @@ end})
 
 CFG:Button({Name = "Delete", Callback = function()
     local SelectedConfig = Flags.SettingConfigurationList
-    if SelectedConfig and isfile("Psalms/Configs/" .. SelectedConfig .. ".cfg") then
+    if SelectedConfig and isfile("FixedPsalms/Configs/" .. SelectedConfig .. ".cfg") then
         delfile("FixedPsalms/Configs/" .. SelectedConfig .. ".cfg")
         UpdateConfigList()
     end
