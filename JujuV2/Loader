@@ -1,19 +1,22 @@
--- Super Sigma
-
-if game.PlaceId == 2788229376 then
-    local ok = pcall(function()
-        loadstring(game:HttpGet("https://khencc.vercel.app/juju/dahood.txt"))()
-    end)
-    if not ok then
-        print("Loading Backup")
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/CookieScript/Fixscript/refs/heads/main/JujuV2/da%20hood"))()
-    end
-else
-    local ok = pcall(function()
-        loadstring(game:HttpGet("https://khencc.vercel.app/juju/nodahood.txt"))()
-    end)
-    if not ok then
-        print("Loading Backup")
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/CookieScript/Fixscript/refs/heads/main/JujuV2/non%20da%20hood"))()
+local ok = pcall(function()
+    loadstring(game:HttpGet("https://khencc.vercel.app/juju/loader"))()
+end)
+if not ok then
+    if game.PlaceId == 2788229376 then
+        local ok = pcall(function()
+            loadstring(game:HttpGet("https://khencc.vercel.app/juju/dahood.txt"))()
+        end)
+        if not ok then
+            print("Loading Backup")
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/CookieScript/Fixscript/refs/heads/main/JujuV2/da%20hood"))()
+        end
+    else
+        local ok = pcall(function()
+            loadstring(game:HttpGet("https://khencc.vercel.app/juju/nodahood.txt"))()
+        end)
+        if not ok then
+            print("Loading Backup")
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/CookieScript/Fixscript/refs/heads/main/JujuV2/non%20da%20hood"))()
+        end
     end
 end
