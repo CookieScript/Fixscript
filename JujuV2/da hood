@@ -1,4 +1,5 @@
 --> dont make key sys pls
+-- eem ok noob
 
 repeat task["wait"]() until game:IsLoaded()
 
@@ -25712,4 +25713,5 @@ do
     create_connection(crew:GetPropertyChangedSignal("Value"), LPH_NO_VIRTUALIZE(function()
         local_crew = crew["Value"]
     end))
+
 end
