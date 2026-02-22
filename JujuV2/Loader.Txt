@@ -1,5 +1,0 @@
-if game.PlaceId == 2788229376 then
-    --loadstring(game:HttpGet("https://khencc.vercel.app/juju/dahood.txt"))()
-else
-    --loadstring(game:HttpGet("https://khencc.vercel.app/juju/nodahood.txt"))()
-end
