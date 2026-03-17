@@ -1685,44 +1685,44 @@ function library:CreateWindow(name, size, hidebutton)
                     local dragging_hue = false
 
                     colorpicker.selector.InputBegan:Connect(function(input)
-                        if input.UserInputType == Enum.UserInputType.MouseButton1 then
+                        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
                             dragging_selector = true
                             colorpicker:RefreshSelector()
                         end
                     end)
     
                     colorpicker.selector.InputEnded:Connect(function(input)
-                        if input.UserInputType == Enum.UserInputType.MouseButton1 then
+                        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
                             dragging_selector = false
                             colorpicker:RefreshSelector()
                         end
                     end)
 
                     colorpicker.hue.InputBegan:Connect(function(input)
-                        if input.UserInputType == Enum.UserInputType.MouseButton1 then
+                        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
                             dragging_hue = true
                             colorpicker:RefreshHue()
                         end
                     end)
     
                     colorpicker.hue.InputEnded:Connect(function(input)
-                        if input.UserInputType == Enum.UserInputType.MouseButton1 then
+                        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
                             dragging_hue = false
                             colorpicker:RefreshHue()
                         end
                     end)
     
                     uis.InputChanged:Connect(function(input)
-                        if dragging_selector and input.UserInputType == Enum.UserInputType.MouseMovement then
+                        if dragging_selector (and input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
                             colorpicker:RefreshSelector()
                         end
-                        if dragging_hue and input.UserInputType == Enum.UserInputType.MouseMovement then
+                        if dragging_hue and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
                             colorpicker:RefreshHue()
                         end
                     end)
 
                     local inputBegan = function(input)
-                        if input.UserInputType == Enum.UserInputType.MouseButton1 then
+                        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
                             for i,v in pairs(window.OpenedColorPickers) do
                                 if v and i ~= colorpicker.MainPicker then
                                     i.Visible = false
@@ -1873,33 +1873,33 @@ function library:CreateWindow(name, size, hidebutton)
                     end
     
                     slider.SlideBar.InputBegan:Connect(function(input)
-                        if input.UserInputType == Enum.UserInputType.MouseButton1 then
+                        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
                             dragging = true
                             slider:Refresh()
                         end
                     end)
     
                     slider.SlideBar.InputEnded:Connect(function(input)
-                        if input.UserInputType == Enum.UserInputType.MouseButton1 then
+                        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
                             dragging = false
                         end
                     end)
     
                     slider.Main.InputBegan:Connect(function(input)
-                        if input.UserInputType == Enum.UserInputType.MouseButton1 then
+                        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
                             dragging = true
                             slider:Refresh()
                         end
                     end)
     
                     slider.Main.InputEnded:Connect(function(input)
-                        if input.UserInputType == Enum.UserInputType.MouseButton1 then
+                        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
                             dragging = false
                         end
                     end)
     
                     uis.InputChanged:Connect(function(input)
-                        if dragging and input.UserInputType == Enum.UserInputType.MouseMovement then
+                        if dragging and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
                             slider:Refresh()
                         end
                     end)
@@ -1913,7 +1913,7 @@ function library:CreateWindow(name, size, hidebutton)
                     toggle:Set(not toggle.CheckedFrame.Visible)
                 end)
                 toggle.Label.InputBegan:Connect(function(input)
-                    if input.UserInputType == Enum.UserInputType.MouseButton1 then
+                    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
                         toggle:Set(not toggle.CheckedFrame.Visible)
                     end
                 end)
@@ -2227,33 +2227,33 @@ function library:CreateWindow(name, size, hidebutton)
                 end
 
                 slider.SlideBar.InputBegan:Connect(function(input)
-                    if input.UserInputType == Enum.UserInputType.MouseButton1 then
+                    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
                         dragging = true
                         slider:Refresh()
                     end
                 end)
 
                 slider.SlideBar.InputEnded:Connect(function(input)
-                    if input.UserInputType == Enum.UserInputType.MouseButton1 then
+                    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
                         dragging = false
                     end
                 end)
 
                 slider.Main.InputBegan:Connect(function(input)
-                    if input.UserInputType == Enum.UserInputType.MouseButton1 then
+                    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
                         dragging = true
                         slider:Refresh()
                     end
                 end)
 
                 slider.Main.InputEnded:Connect(function(input)
-                    if input.UserInputType == Enum.UserInputType.MouseButton1 then
+                    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
                         dragging = false
                     end
                 end)
 
 				uis.InputChanged:Connect(function(input)
-					if dragging and input.UserInputType == Enum.UserInputType.MouseMovement then
+					if dragging and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
                         slider:Refresh()
 					end
 				end)
@@ -2814,44 +2814,44 @@ function library:CreateWindow(name, size, hidebutton)
                 local dragging_hue = false
 
                 colorpicker.selector.InputBegan:Connect(function(input)
-                    if input.UserInputType == Enum.UserInputType.MouseButton1 then
+                    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
                         dragging_selector = true
                         colorpicker:RefreshSelector()
                     end
                 end)
 
                 colorpicker.selector.InputEnded:Connect(function(input)
-                    if input.UserInputType == Enum.UserInputType.MouseButton1 then
+                    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
                         dragging_selector = false
                         colorpicker:RefreshSelector()
                     end
                 end)
 
                 colorpicker.hue.InputBegan:Connect(function(input)
-                    if input.UserInputType == Enum.UserInputType.MouseButton1 then
+                    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
                         dragging_hue = true
                         colorpicker:RefreshHue()
                     end
                 end)
 
                 colorpicker.hue.InputEnded:Connect(function(input)
-                    if input.UserInputType == Enum.UserInputType.MouseButton1 then
+                    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
                         dragging_hue = false
                         colorpicker:RefreshHue()
                     end
                 end)
 
                 uis.InputChanged:Connect(function(input)
-                    if dragging_selector and input.UserInputType == Enum.UserInputType.MouseMovement then
+                    if dragging_selector and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
                         colorpicker:RefreshSelector()
                     end
-                    if dragging_hue and input.UserInputType == Enum.UserInputType.MouseMovement then
+                    if dragging_hue and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
                         colorpicker:RefreshHue()
                     end
                 end)
 
                 local inputBegan = function(input)
-                    if input.UserInputType == Enum.UserInputType.MouseButton1 then
+                    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
                         for i,v in pairs(window.OpenedColorPickers) do
                             if v and i ~= colorpicker.MainPicker then
                                 i.Visible = false
